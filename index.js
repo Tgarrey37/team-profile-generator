@@ -43,8 +43,28 @@ const createManager = () => {
             name: 'email',
             message: "Enter the manager's email address!",
             validate: email =>{
+                valid = test(email)
+                if(valid){
+                    return true;
+                } else {
+                    console.log ('Enter your email.')
+                    return false;
+                }
+                    
                 
             }
+        },
+        {
+            type:'input',
+            name: 'officeNumber',
+            message: "Enter the manager's office number",
+            validate: nameInput => {
+                if (isNaN(nameInput)){
+                    console.log('Enter an office number!')
+                    return false;
+                } else {
+                    return true;
+                }
         }
-    ])
+         }])
 }
