@@ -102,7 +102,7 @@ const employeeQuestions = [
       name: "email",
       message: "Enter the employee's email.",
       validate: (email) => {
-        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
         if (valid) {
           return true;
         } else {
@@ -204,7 +204,7 @@ const writeFile = (data) => {
 };
 
 createManager()
-  .then(addEmployee)
+  .then(createEmployee)
   .then((teamArray) => {
       const teamCards = generateHtmlCards(teamArray)
     return generateTeamPage(teamCards);

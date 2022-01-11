@@ -1,8 +1,22 @@
-describe("Algo", () => {
-    describe("reverse", () => {
-      it('should return a reversed string', () =>{
-        const str = "Hello World";
-        const reversed = "dlroW olleH";
-        const execute = new Algo().reverse(str)
-        expect(execute).toEqual(reversed);
-      })})});
+const Manager = require("../lib/Manager");
+
+describe("Manager", () => {
+  describe("Test Manager class functionality.", () => {
+    it("Test role.", () => {
+      const manager = new Manager("John", 3, "john@test.com", 10);
+      expect(manager.role).toEqual("Manager");
+    });
+    it("Test office number.", () => {
+      const manager = new Manager("John", 3, "john@test.com", 10);
+      expect(manager.officeNumber).toEqual(10);
+    });
+    it("Test getOfficeNumber method.", () => {
+      const manager = new Manager("John", 3, "john@test.com", 10);
+      expect(manager.getOfficeNumber()).toEqual(10);
+    });
+    it("Test getRole method.", () => {
+      const manager = new Manager("John", 3, "john@test.com", 10);
+      expect(manager.getRole()).toEqual("Manager");
+    });
+  });
+});
