@@ -102,7 +102,8 @@ const employeeQuestions = [
       name: "email",
       message: "Enter the employee's email.",
       validate: (email) => {
-        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+        valid = test(email);
+        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
         if (valid) {
           return true;
         } else {
