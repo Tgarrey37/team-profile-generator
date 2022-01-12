@@ -1,61 +1,4 @@
-const generateEmployee = function (employee) {
-    let employeeDetail;
-    let icon;
-    if(employee.role === "Manager"){
-        employeeDetail = `<p class="office">Office Number: ${employee.officeNumber}</p>`;
-        icon = 'content_paste';
-    } else if (employee.role === "Engineer"){
-        employeeDetail =  `<p class="github">Github: <a href="https://github.com/${employee.github}">${employee.github}</a></p>`;
-        icon = 'laptop_mac';
-    } else {
-        employeeDetail =  `<p class="school">School: ${employee.school}</p>`
-        icon = 'assignment_ind';
-    }
-    return `
-    <div class="col-4 mt-4">
-    <div class="card h-100">
-        <div class="card-header">
-            <h3>${employee.name}</h3>
-            <h4>${employee.role}</h4><i class="material-icons">${icon}</i>
-        </div>
-        <div class="card-body">
-            <p class="id">ID: ${employee.id}</p>
-            <p class="email">Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
-            ${employeeDetail}
-        </div>
-    </div>
-</div>
-`;
 
-}
-
-
-
-generateHtmlCards = (data) => {
-
-    // array for cards 
-    pageArray = []; 
-
-    for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole(); 
-        const employeeCard = generateEmployee(employee);
-
-        pageArray.push(employeeCard);
-        
-       
-        
-    }
-
-    
-    const employeeCards = pageArray.join('')
-    return employeeCards;
-
-}
-
-
-const generateTeamPage = function (employeeCards) {   
-  return`
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -78,7 +21,35 @@ const generateTeamPage = function (employeeCards) {
           <div class="container">
               <div class="row justify-content-center" id="team-cards">
                   <!--Team Cards-->
-                  ${employeeCards}
+                  
+    <div class="col-4 mt-4">
+    <div class="card h-100">
+        <div class="card-header">
+            <h3>Taylor</h3>
+            <h4>Manager</h4><i class="material-icons">content_paste</i>
+        </div>
+        <div class="card-body">
+            <p class="id">ID: 4</p>
+            <p class="email">Email: <a href="mailto:tpopp@gmail.com">tpopp@gmail.com</a></p>
+            <p class="office">Office Number: 12</p>
+        </div>
+    </div>
+</div>
+
+    <div class="col-4 mt-4">
+    <div class="card h-100">
+        <div class="card-header">
+            <h3>Taylor</h3>
+            <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+        </div>
+        <div class="card-body">
+            <p class="id">ID: 4</p>
+            <p class="email">Email: <a href="mailto:tpopp@gmail.com">tpopp@gmail.com</a></p>
+            <p class="school">School: UofA</p>
+        </div>
+    </div>
+</div>
+
               </div>
           </div>
       </main>
@@ -88,33 +59,3 @@ const generateTeamPage = function (employeeCards) {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </html>
-`;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-module.exports = {generateHtmlCards, generateTeamPage};

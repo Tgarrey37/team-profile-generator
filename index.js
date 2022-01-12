@@ -41,7 +41,7 @@ const managerQuestions = [
     name: "email",
     message: "Enter the manager's email address!",
     validate: (email) => {
-      valid = test(email);
+      valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
       if (valid) {
         return true;
       } else {
@@ -102,7 +102,6 @@ const employeeQuestions = [
       name: "email",
       message: "Enter the employee's email.",
       validate: (email) => {
-        valid = test(email);
         valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
         if (valid) {
           return true;
